@@ -1,0 +1,6 @@
+venv
+build
+cmake-build-release
+pybind11
+.idea
+.gitignore
