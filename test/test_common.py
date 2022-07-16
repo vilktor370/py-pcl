@@ -12,4 +12,4 @@ pts = pcl.PointCloudXYZ(10, 10)
 # for i in pts:
 p = pcl.PointCloudXYZ(pts)
 p.resize(50)
-print(pts.size())
+print(pcl)

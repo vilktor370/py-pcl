@@ -115,7 +115,6 @@ namespace pcl {
 
 
         void pybind_common_pointCloud(py::module& m){
-//            py::module m_common = m.def_submodule("common");
             pcl_PCLHeader(m);
             pcl_PointXYZ(m);
             pcl_PointCloud_main(m);

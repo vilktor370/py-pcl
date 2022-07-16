@@ -9,6 +9,7 @@
 namespace pcl {
     PYBIND11_MODULE(pcl, m) {
         common::pybind_common_pointCloud(m);
+        io::pybind_io_pointCloud(m);
     }
 
 }// namesapce pcl

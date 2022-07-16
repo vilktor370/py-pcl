@@ -11,32 +11,42 @@ include_directories(${PCL_INCLUDE_DIRS})
 link_directories(${PCL_LIBRARY_DIRS})
 add_definitions(${PCL_DEFINITIONS})
 
-
+#set(CMAKE_SHARED_LINKER_FLAGS "-Wl,-Bsymbolic")
 
 # link other sub modules
-add_library(common STATIC pointCloud.cpp)
-
-set_target_properties(
-        common
-        PROPERTIES
-        POSITION_INDEPENDENT_CODE ON
-        PREFIX ""
-        OUTPUT_NAME "better_name"
-
-
-)
+add_library(common SHARED common/pointCloud.cpp)
+add_library(io SHARED io/pointCloud_io.cpp)
 
 pybind11_add_module(pcl pybind_pcl.cpp)
 
-target_link_libraries(pcl PRIVATE common)
+
+target_link_libraries(
+        pcl
+        PRIVATE
+        io
+        common
+)
 
 set_target_properties(
         pcl
         PROPERTIES
         PREFIX ""
         OUTPUT_NAME "pcl"
-        LIBRARY_OUTPUT_DIRECTORY /home/haochen/Projects/pybinding/lib
-
+        LIBRARY_OUTPUT_DIRECTORY /home/haochen/Projects/py-pcl/lib
+)
+set_target_properties(
+        io
+        PROPERTIES
+        PREFIX ""
+        OUTPUT_NAME "libio"
+        LIBRARY_OUTPUT_DIRECTORY /home/haochen/Projects/py-pcl/lib
+)
+set_target_properties(
+        common
+        PROPERTIES
+        PREFIX ""
+        OUTPUT_NAME "libcommon"
+        LIBRARY_OUTPUT_DIRECTORY /home/haochen/Projects/py-pcl/lib
 )
 
 

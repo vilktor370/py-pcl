@@ -12,7 +12,7 @@
 #include <pybind11/operators.h> // operators
 
 // member files
-#include "pointCloud.h"
-
+#include "common/pointCloud.h"
+#include "io/pointCloud_io.h"
 namespace py = pybind11;
 #endif //PYBINDING_PCL_H

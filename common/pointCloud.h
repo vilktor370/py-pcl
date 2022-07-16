@@ -4,7 +4,7 @@
 
 #ifndef PYBINDING_POINTCLOUD_H
 #define PYBINDING_POINTCLOUD_H
-#include "pybind_pcl.h"
+#include "../pybind_pcl.h"
 namespace pcl{
 namespace common{
     void pybind_common_pointCloud(pybind11::module& m);
